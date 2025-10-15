@@ -1,9 +1,11 @@
+import random
+
 def creer_grille():
     grille = []
     for i in range(10):
         ligne = []
         for j in range(10):
-            ligne.append("□")
+            ligne.append("🌊")
         grille.append(ligne)
     return grille
 
@@ -14,7 +16,7 @@ def afficher_grille(grille):
     # On commence par afficher les num des colonnes (1 à 10)
     print("   ", end="")            
     for n in range(1, 11):          
-        print(n, end="  ")          # on affiche ts les num 
+        print(n, end="   ")          # on affiche ts les num 
     print()                         # Retour à la ligne une fois que ts les num sont affichés
 
     # Ensuite on affiche chaque ligne de la grille
@@ -49,7 +51,7 @@ def placer_bateau(grille):
         
 
         # on vérifie si la case
-        if grille[i][j] != "□":
+        if grille[i][j] != "🌊":
             print("Il y a déjà un bateau dans cette case ")
             continue
 
@@ -67,35 +69,31 @@ def attaquer(grille_adversaire):
         colonne = input("Entrez la lettre de la case à attaquer (A–J) : ").upper()
         ligne = input("Entrez le numéro de la case (1–10) : ")
 
-        # On vérifie que les lignes et les colonnes sont valides comme pr la fonction précédente
+        # Vérifier les entrées
         if colonne not in lettres:
-            print("Cette lettre n'est pas entre A et J.")
+            print("❌ Lettre invalide. Choisissez entre A et J.")
             continue
         if ligne not in ["1","2","3","4","5","6","7","8","9","10"]:
-            print("Entrez un nombre entre 1 et 10.")
+            print("❌ Numéro invalide. Choisissez entre 1 et 10.")
             continue
 
         i = int(ligne) - 1
         j = lettres.index(colonne)
 
         # Vérifier le contenu de la case
-        if grille_adversaire[i][j] == "💥":
-            print("Un bateau a été touché ")
-            grille_adversaire[i][j] = "T"  # marquer la case touchée
-        elif grille_adversaire[i][j] == "☠️":
-            print("Le bateau s'est fait coulé ")
-            grille_adversaire[i][j] = "🌊"  # marquer la case ratée
+        if grille_adversaire[i][j] == "🚢":
+            print("💥 TOUCHÉ !")
+            grille_adversaire[i][j] = "💥"   # marque la case touchée
+        elif grille_adversaire[i][j] == "🌊":
+            print("💧 Tir raté !")
+            grille_adversaire[i][j] = "☠️"   # marque la case manquée
         else:
-            print("Cette case a déjà été attaquée.")
-            attaquer(grille_adversaire) # On affiche pr voir si ça c bien actualisé
+            print("⚠️ Cette case a déjà été attaquée.")
+            continue  # redemande une nouvelle case
 
-        break  # sortie de la boucle après un coup valide
+        afficher_grille(grille_adversaire)
+        break
 
-
-
-
-
-        
 
 
 # main
@@ -112,8 +110,6 @@ grille_adversaire[5][5] = "🚢"  # On place un bateau pour tester
 
 afficher_grille(grille_adversaire)
 attaquer(grille_adversaire)
-
-
 
 
 
