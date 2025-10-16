@@ -30,7 +30,7 @@ def afficher_grille(grille):
     
     lettres = ["A","B","C","D","E","F","G","H","I","J"]
 
-    # Afficher les lettres en haut
+    # Affiche les lettres en haut
     print("  ", end=" ")
     for lettre in lettres:
         print(lettre, end="  ")
@@ -38,6 +38,7 @@ def afficher_grille(grille):
 
     # affiche les num a gauche
     for i in range(10):
+        
         # condition ici pr que ts les numéros des lignes  soient alignés 
         if i + 1 < 10:
             print(" " + str(i + 1), end=" ")
@@ -73,7 +74,8 @@ def placer_bateau(grille):
             print("Entrez un nombre entre 1 et 10.")
             continue
 
-
+        # pr transformer les lettres et les numeros en indice
+        
         j = lettres.index(colonne)  
         i = int(ligne) - 1          
 
@@ -270,7 +272,7 @@ afficher_grille(grille_adversaire)
 
 
 
-print("\n🎮 Que le jeu commence !")
+print("\n Que le jeu commence !")
 
 
 
@@ -286,7 +288,7 @@ while jeu_en_cours:
     # on verifie si apres mon attaque j'ai gagner 
     if verifier_victoire(grille, grille_adversaire):
         jeu_en_cours = False
-        continue
+        continue # pr arrt le tour mm si qlq a gagné.
 
 
     print("\n Tour de l’IA :")
