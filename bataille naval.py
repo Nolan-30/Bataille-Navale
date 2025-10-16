@@ -266,14 +266,12 @@ placer_5_bateaux(grille)
 print("\n L’IA place ses bateaux...")
 placer_5_bateaux_ia(grille_adversaire)
 
-# Affiche la grille de l'IA pour voir ses bateaux
+# Affiche la grille de l'IA pour voir ses bateaux afin de voir si la fonct° verifier_victoire marche bien
 print("\n Voici la grille de l’IA :")
 afficher_grille(grille_adversaire)
 
 
-
 print("\n Que le jeu commence !")
-
 
 
 
@@ -294,7 +292,7 @@ while jeu_en_cours:
     print("\n Tour de l’IA :")
     attaque_ia(grille)
 
-    # idem que pr l'IA
+    # idem mais pr l'IA
     if verifier_victoire(grille, grille_adversaire):
         jeu_en_cours = False
 
