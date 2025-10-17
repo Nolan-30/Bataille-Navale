@@ -21,7 +21,7 @@ def creer_grille():
 def afficher_grille(grille):
     """
     
-    la fonction affiche av les lettres (A–J) en haut et les numéros (1–10) à gauche.
+    la fonction affiche av les lettres (A-J) en haut et les numéros (1-10) à gauche.
 
     parametres :
     grille : c'est une liste de liste
@@ -63,8 +63,8 @@ def placer_bateau(grille):
 
     while True: 
 
-        colonne = input("Entrez une lettre (A–J) : ").upper()
-        ligne = input("Entrez un numéro (1–10) : ")
+        colonne = input("Entrez une lettre (A-J) : ").upper()
+        ligne = input("Entrez un numéro (1-10) : ")
 
         if colonne not in lettres:
             print("Cette lettre n'est pas entre A et J.")
@@ -94,7 +94,7 @@ def placer_5_bateaux(grille):
     parametres : grille
     aucun retour
     """
-    for n in range(5):
+    for n in range(5): # je met 5 pr placer exactement 5 bateaux
         print("\n Placement du bateau n°", n+1)
         placer_bateau(grille)
     print("\n Bravo tu as bien placé tes 5 bateaux")
@@ -102,7 +102,7 @@ def placer_5_bateaux(grille):
 
 def placer_bateau_ia(grille):
     """
-    cette fonct° sert a placer un bateau  aléatoirement sur la grille de l’IA.
+    cette fonct° sert a placer un bateau  aléatoirement sur la grille de L'IA.
     paramètres : grile
     aucun retour
     """
@@ -126,7 +126,7 @@ def placer_bateau_ia(grille):
 
 def placer_5_bateaux_ia(grille):
     """
-    Place 5 bateaux  aléatoirement sur la grille de l’IA
+    Place 5 bateaux  aléatoirement sur la grille de l'IA
     parametres : grille 
     aucun return
     """
@@ -138,13 +138,13 @@ def placer_5_bateaux_ia(grille):
         if grille[i][j] == "🌊":  # case libre
             grille[i][j] = "🚢"
             n += 1 # on augmente de 1 a chaque fois pr que l'IA ne place pas plus de 5 bateaux grace a la condition mise dans while
-    print("\n L’IA a placé ses 5 bateaux")
+    print("\n L'IA a placé ses 5 bateaux")
 
     
     
 def attaquer(grille_adversaire):
     """
-    la fonction permet au joueur d’effectuer une attaque sur la grille de l’adversaire
+    la fonction permet au joueur d'effectuer une attaque sur la grille de l'adversaire
     a un endroit précis
     La fonction met ensuite à jour la grille selon le résultat du tir et affiche le motif a la place de la case en qst
     
@@ -156,15 +156,15 @@ def attaquer(grille_adversaire):
     lettres = ["A","B","C","D","E","F","G","H","I","J"]
 
     while True:
-        colonne = input("Entrez la lettre de la case à attaquer (A–J) : ").upper()
-        ligne = input("Entrez le numéro de la case (1–10) : ")
+        colonne = input("Entrez la lettre de la case à attaquer (A-J) : ").upper()
+        ligne = input("Entrez le numéro de la case (1-10) : ")
 
         
         if colonne not in lettres:
             print("Choisir entre A et J.")
             continue
         if ligne not in ["1","2","3","4","5","6","7","8","9","10"]:
-            print("Choisir entre 1 et 10.")
+            print("Choisir entre 1 et 10")
             continue
 
         i = int(ligne) - 1
@@ -207,10 +207,10 @@ def attaque_ia(grille_joueur):
 
         # on verifie  le contenu de la case
         if grille_joueur[i][j] == "🚢":
-            print(f"L’IA a touché un de tes bateaux ") # On affiche que l'Ia m'a touché et on donne aussi les coordonnées du bateau auquel elle a touchée
+            print(f"L'IA a touché un de tes bateaux ") # On affiche que l'Ia m'a touché et on donne aussi les coordonnées du bateau auquel elle a touchée
             grille_joueur[i][j] = "💥"
         elif grille_joueur[i][j] == "🌊":
-            print(f"L’IA a raté son tir ")
+            print(f"L'IA a raté son tir ")
             grille_joueur[i][j] = "❌"
         else:
             # ca veut dire que la case a deja ete jouee dcp on recommence
@@ -257,17 +257,22 @@ def verifier_victoire(grille_joueur, grille_ia):
 
 # main
 
+# on affiche la grille
 grille = creer_grille()
+afficher_grille(grille)
+
 grille_adversaire = creer_grille()
 
+# place les bateaux
 print(" Place tes 5 bateaux :")
 placer_5_bateaux(grille)
-
-print("\n L’IA place ses bateaux...")
+ 
+# place les bateaux
+print("\n L'IA place ses bateaux...")
 placer_5_bateaux_ia(grille_adversaire)
 
 # Affiche la grille de l'IA pour voir ses bateaux afin de voir si la fonct° verifier_victoire marche bien
-print("\n Voici la grille de l’IA :")
+print("\n Voici la grille de l'IA :")
 afficher_grille(grille_adversaire)
 
 
@@ -275,12 +280,12 @@ print("\n Que le jeu commence !")
 
 
 
-
+# boucle de jeu qui tourne jusqu'a ce que qlq gagne
 jeu_en_cours = True
 
 while jeu_en_cours:
 
-    print("\n A Ton tour d’attaquer :")
+    print("\n A Ton tour d'attaquer :")
     attaquer(grille_adversaire)
 
     # on verifie si apres mon attaque j'ai gagner 
@@ -289,7 +294,7 @@ while jeu_en_cours:
         continue # pr arrt le tour mm si qlq a gagné.
 
 
-    print("\n Tour de l’IA :")
+    print("\n Tour de l'IA :")
     attaque_ia(grille)
 
     # idem mais pr l'IA
