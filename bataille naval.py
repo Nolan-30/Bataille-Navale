@@ -14,7 +14,7 @@ def creer_grille():
     for i in range(10):
         ligne = []
         for j in range(10):
-            ligne.append("🌊")
+            ligne.append("💧")
         grille.append(ligne)
     return grille
 
@@ -79,11 +79,11 @@ def placer_bateau(grille):
         j = lettres.index(colonne)  
         i = int(ligne) - 1          
 
-        if grille[i][j] != "🌊":
+        if grille[i][j] != "💧":
             print("Impossible de placer un bateau dans cette case")
             continue
 
-        grille[i][j] = "🚢" 
+        grille[i][j] = "⛵️" 
         print("Le bateau est en position", colonne, ":", ligne)
         afficher_grille(grille)
         break
@@ -114,12 +114,12 @@ def placer_bateau_ia(grille):
         j = random.randint(0, 9)
 
         # on vérifie si l'IA peut poser un bateau
-        if grille[i][j] != "🌊":
+        if grille[i][j] != "💧":
             print("Impossible de placer un bateau dans cette case")
             continue  
 
         # sinon on met un bateau
-        grille[i][j] = "🚢"
+        grille[i][j] = "⛵️"
         break
 
         
@@ -135,8 +135,8 @@ def placer_5_bateaux_ia(grille):
     while n < 5:
         i = random.randint(0, 9)
         j = random.randint(0, 9)
-        if grille[i][j] == "🌊":  # case libre
-            grille[i][j] = "🚢"
+        if grille[i][j] == "💧":  # case libre
+            grille[i][j] = "⛵️"
             n += 1 # on augmente de 1 a chaque fois pr que l'IA ne place pas plus de 5 bateaux grace a la condition mise dans while
     print("\n L'IA a placé ses 5 bateaux")
 
@@ -171,10 +171,10 @@ def attaquer(grille_adversaire):
         j = lettres.index(colonne)
 
         # # on verifie ce qu'il y a dans la case
-        if grille_adversaire[i][j] == "🚢":
+        if grille_adversaire[i][j] == "⛵️":
             print("Tu viens de touché un bateau ! ")
             grille_adversaire[i][j] = "💥"   # ce motif marque qu'un bateau a été touché 
-        elif grille_adversaire[i][j] == "🌊":
+        elif grille_adversaire[i][j] == "💧":
             print(" Tir raté")
             grille_adversaire[i][j] = "❌"   # ca marque la case qu'a été raté
         else:
@@ -206,10 +206,10 @@ def attaque_ia(grille_joueur):
         j = random.randint(0, 9)
 
         # on verifie  le contenu de la case
-        if grille_joueur[i][j] == "🚢":
+        if grille_joueur[i][j] == "⛵️":
             print(f"L'IA a touché un de tes bateaux ") # On affiche que l'Ia m'a touché et on donne aussi les coordonnées du bateau auquel elle a touchée
             grille_joueur[i][j] = "💥"
-        elif grille_joueur[i][j] == "🌊":
+        elif grille_joueur[i][j] == "💧":
             print(f"L'IA a raté son tir ")
             grille_joueur[i][j] = "❌"
         else:
@@ -229,7 +229,7 @@ def tous_bateaux_coules(grille):
     sinon False
     """
     for ligne in grille:
-        if "🚢" in ligne:
+        if "⛵️" in ligne:
             return False
     return True
 
@@ -245,11 +245,13 @@ def verifier_victoire(grille_joueur, grille_ia):
     return True si un joueur a gagné
     False
     """
+    
     if tous_bateaux_coules(grille_ia):
         print("\n Bravo ! Tu as coulé tous les bateaux de l'IA")
         return True
+    
     elif tous_bateaux_coules(grille_joueur):
-        print("\n Tous tes bateaux ont été coulés. L'IA a gagne !")
+        print("\n Tous tes bateaux ont été coulés. L'IA a gagner")
         return True
     return False
 
@@ -268,7 +270,7 @@ print(" Place tes 5 bateaux :")
 placer_5_bateaux(grille)
  
 # place les bateaux
-print("\n L'IA place ses bateaux...")
+
 placer_5_bateaux_ia(grille_adversaire)
 
 # Affiche la grille de l'IA pour voir ses bateaux afin de voir si la fonct° verifier_victoire marche bien
