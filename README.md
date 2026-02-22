@@ -37,6 +37,6 @@ Arbitrage : tous_bateaux_coules() et verifier_victoire() analysent l'état de la
 ## 🛠️ Installation et Lancement
 Assure-toi d'avoir Python 3 installé sur ton ordinateur.
 
-Télécharge le fichier bataille_navale.py, puis lancer le !
+Télécharge le fichier bataille_navale.py, puis lancer le .
 
 
