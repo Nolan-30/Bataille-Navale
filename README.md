@@ -2,7 +2,7 @@
 Bienvenue dans ce jeu de Bataille Navale classique développé en Python ! Affronte une intelligence artificielle dans un duel stratégique en haute mer. 🚢
 
 📝 Description du projet
-Ce programme simule une partie de bataille navale sur une grille de 10x10. Le but est simple : couler tous les navires ennemis avant que les tiens ne finissent au fond de l'océan.
+ce programme simule une partie de bataille navale sur une grille de 10x10. Le but est simple : couler tous les navires ennemis avant que les tiens ne finissent au fond de l'océan.
 
 Symbole	    |    Signification
 💧	Eau     |    Case inexplorée
