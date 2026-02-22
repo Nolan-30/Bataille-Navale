@@ -1,33 +1,42 @@
-# Jeu de Bataille Navale en Python
+# ⚓ Bataille Navale — Python Edition 🌊
+Bienvenue dans ce jeu de Bataille Navale classique développé en Python ! Affronte une intelligence artificielle dans un duel stratégique en haute mer. 🚢
 
-## Descript°
+📝 Description du projet
+Ce programme simule une partie de bataille navale sur une grille de 10x10. Le but est simple : couler tous les navires ennemis avant que les tiens ne finissent au fond de l'océan.
 
-Un jeu de **Bataille Navale** où le joueur affronte une IA sur une grille 10x10.
+Symbole	    |    Signification
+💧	Eau     |    Case inexplorée
+⛵️	Bateau  |    Ta flotte
+💥	Touché  |    Cible atteinte 
+❌	Manqué  |    Plouf... dans l'eau
 
-## Symboles :
+## 🚀 Comment jouer ?
+Préparation de la flotte 🛠️ : Place tes 5 bateaux stratégiquement en entrant les coordonnées (ex: A 5).
 
-- 🌊 : eau
-- 🚢 : bateau
-- 💥 : bateau touché
-- ❌ : tir manqué
+Déploiement de l'IA 🤖 : L'ordinateur place ses 5 bateaux de manière aléatoire et secrète.
 
-Le joueur place 5 bateaux et l'IA aussi mais de maniere aleatoire
-Les 2 s'attaque chacun leur tour jusqu'à ce que tous les bateaux d'un coule
+Combat au tour par tour ⚔️ :
 
-## Comment jouer
+Choisis une coordonnée pour attaquer la grille adverse.
 
-1. Placer vos 5 bateaux sur la grille en choisissant une lettre (colonne) et un chiffre (ligne).
-2. Attaquer la grille de l'IA à chaque tour.
-3. L'IA attaque votre grille après votre tour.
-4. Le jeu se termine quand tous les bateaux d'un joueur sont détruits.
+L'IA réplique immédiatement après ton tir.
 
-## Fonctionnalités principales
+Victoire 🏆 : Le premier à couler les 5 navires adverses remporte la partie !
 
-- Créer et afficher la grille (`creer_grille`, `afficher_grille`)
-- Placer les bateaux du joueur et de l'IA (`placer_bateau`, `placer_5_bateaux`, `placer_bateau_ia`, `placer_5_bateaux_ia`)
-- Attaquer (`attaquer`, `attaque_ia`)
-- Vérifier si tous les bateaux sont coulés et déterminer le vainqueur (`tous_bateaux_coules`, `verifier_victoire`)
+## ⚙️ Fonctionnalités techniques
+Le code est découpé en modules logiques pour une meilleure lisibilité :
 
-# Lancement du projet
+Gestion de la Mer : creer_grille() et afficher_grille() pour générer et dessiner l'espace de jeu avec les coordonnées A-J et 1-10.
 
-Il suffit de lancer le fichier "bataille naval.py"
+Logistique de Placement : Fonctions dédiées pour le placement manuel (placer_5_bateaux) et le placement aléatoire de l'IA (placer_5_bateaux_ia).
+
+Système de Tir : attaquer() et attaque_ia() gèrent les impacts et mettent à jour les grilles en temps réel.
+
+Arbitrage : tous_bateaux_coules() et verifier_victoire() analysent l'état de la partie pour annoncer le gagnant.
+
+## 🛠️ Installation et Lancement
+Assure-toi d'avoir Python 3 installé sur ton ordinateur.
+
+Télécharge le fichier bataille_navale.py, puis lancer le !
+
+
