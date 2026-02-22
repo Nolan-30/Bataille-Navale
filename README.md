@@ -1,4 +1,4 @@
-# ⚓ Bataille Navale — Python Edition 🌊
+# ⚓ Bataille Navale 🌊
 Bienvenue dans ce jeu de Bataille Navale classique développé en Python ! Affronte une intelligence artificielle dans un duel stratégique en haute mer. 🚢
 
 📝 Description du projet
